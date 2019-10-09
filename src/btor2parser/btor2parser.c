@@ -1437,7 +1437,7 @@ START:
       PARSE (one, constant);
       PARSE (ones, constant);
       PARSE (or, binary_op);
-      PARSE (output, unary_op);
+      PARSE (output, constraint);
       break;
     case 'r':
       PARSE (read, binary_op);
