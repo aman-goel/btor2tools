@@ -288,6 +288,7 @@ parse_model_line (Btor2Line *l)
     case BTOR2_TAG_usubo:
     case BTOR2_TAG_write:
     default:
+		 break;
       die ("parse error in '%s' at line %" PRId64 ": unsupported '%" PRId64 " %s%s'",
            model_path,
            l->lineno,
@@ -428,7 +429,6 @@ simulate (int64_t id)
         assert (l->nargs == 2);
         res = btorsim_bv_sub (args[0], args[1]);
         break;
-        break;
       case BTOR2_TAG_uext:
         assert (l->nargs == 1);
         {
@@ -466,6 +466,18 @@ simulate (int64_t id)
         res = btorsim_bv_xor (args[0], args[1]);
         break;
       case BTOR2_TAG_zero: res = btorsim_bv_zero (l->sort.bitvec.width); break;
+      case BTOR2_TAG_srl:
+        assert (l->nargs == 2);
+        res = btorsim_bv_srl (args[0], args[1]);
+        break;
+      case BTOR2_TAG_urem:
+        assert (l->nargs == 2);
+        res = btorsim_bv_urem (args[0], args[1]);
+        break;
+      case BTOR2_TAG_udiv:
+        assert (l->nargs == 2);
+        res = btorsim_bv_udiv (args[0], args[1]);
+        break;
       default:
         die ("can not randomly simulate operator '%s' at line %" PRId64,
              l->name,
