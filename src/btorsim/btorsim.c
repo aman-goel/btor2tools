@@ -288,7 +288,6 @@ parse_model_line (Btor2Line *l)
     case BTOR2_TAG_usubo:
     case BTOR2_TAG_write:
     default:
-		 break;
       die ("parse error in '%s' at line %" PRId64 ": unsupported '%" PRId64 " %s%s'",
            model_path,
            l->lineno,
