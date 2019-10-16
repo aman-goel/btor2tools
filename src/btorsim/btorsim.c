@@ -253,6 +253,9 @@ parse_model_line (Btor2Line *l)
     case BTOR2_TAG_ulte:
     case BTOR2_TAG_xnor:
     case BTOR2_TAG_xor:
+    case BTOR2_TAG_udiv:
+    case BTOR2_TAG_urem:
+    case BTOR2_TAG_srl:
     case BTOR2_TAG_zero: break;
 
     case BTOR2_TAG_dec:
@@ -279,12 +282,9 @@ parse_model_line (Btor2Line *l)
     case BTOR2_TAG_smulo:
     case BTOR2_TAG_sra:
     case BTOR2_TAG_srem:
-    case BTOR2_TAG_srl:
     case BTOR2_TAG_ssubo:
     case BTOR2_TAG_uaddo:
-    case BTOR2_TAG_udiv:
     case BTOR2_TAG_umulo:
-    case BTOR2_TAG_urem:
     case BTOR2_TAG_usubo:
     case BTOR2_TAG_write:
     default:
